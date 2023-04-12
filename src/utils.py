@@ -148,5 +148,5 @@ def createVocab(df):
         if wordSorted in dictionary:
             words += wordSorted + "\n"
     
-    print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.end)
+    print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.ENDC)
     return words
