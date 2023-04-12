@@ -1,9 +1,45 @@
-instalar el python -m spacy download en_core_web_sm
-instalar corrector de palabras https://sourceforge.net/projects/aoo-extensions/files/18709/7/dict-en-20210418.oxt
-Descarga y ejecuta el instalador de diccionarios de OpenOffice para Windows desde el siguiente enlace: https://sourceforge.net/projects/aoo-extensions/files/18709/7/dict-en-20210418.oxt
+# IAA - Primera parte proyecto: 
+* author: Saúl Sosa Díaz
+* email: _alu0101404141@ull.edu.es_
 
-Cuando se te pregunte cómo deseas abrir el archivo, selecciona "OpenOffice" si lo tienes instalado en tu sistema o "WinRAR" para extraer el archivo.
+## Resumen
+El objetivo es crear un vocabulario a partir del archivo F75_train.csv que contiene noticias, identificando todas las palabras presentes en el archivo mediante preprocesamiento y tokenización. Luego, se debe guardar el resultado en un archivo de texto llamado vocabulario.txt, donde cada palabra aparece una sola vez y está ordenada alfabéticamente.
 
-Si seleccionaste "WinRAR", abre el archivo con WinRAR y extrae el archivo "en_US.dic".
 
-Copia el archivo "en_US.dic" a la carpeta donde se encuentra la biblioteca PyEnchant. Para encontrar esta carpeta, puedes ejecutar el siguiente comando en Python:
+## Ejecución
+**El programa generará una instancia aleatoria por defecto. Si se quisiera cambiar habría que indicarle el parámetro -f**  
+El fichero `main` está en la carpeta /src, para ejecutar el programa ejecute el siguiente programa:
+
+```BASH
+python3 ./src/main.py
+```
+
+## Dependencias:
+Para ejecutar este programa son necesarias las siguientes librerías:
+* [Pandas](https://pandas.pydata.org/): Se utiliza para manipular y analizar datos.
+* [NLTK](https://pypi.org/project/typeguard/): Se utiliza para el procesamiento del lenguaje natural.
+* [BeautifulSoup 4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/): Para analizar y extraer datos de documentos HTML y XML.
+* [TextBlob](https://textblob.readthedocs.io/): Se utiliza para realizar tareas de análisis de texto como etiquetado de partes del discurso, análisis de sentimientos, análisis de sujetos y extracción de frases clave.
+* [Spacy](https://textblob.readthedocs.io/): Se utiliza para realizar tareas avanzadas de procesamiento de texto, como etiquetado de partes del discurso, análisis sintáctico, reconocimiento de entidades nombradas, análisis semántico y más.
+
+**IMPORTANTE**: Para que funcione el programa es necesario tener instalado el modelo de lenguaje *en_core_web_sm* de Spacy.  
+Para ello:
+```BASH
+python -m spacy download en_core_web_sm
+```
+
+## Estructura de directorios
+```
+  .
+  └── src  
+```
+
+## Referencias:
+* [Pandas](https://pandas.pydata.org/)
+* [NLTK](https://pypi.org/project/typeguard/)
+* [BeautifulSoup 4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* [TextBlob](https://textblob.readthedocs.io/)
+* [Spacy](https://textblob.readthedocs.io/)
+
+
+[Python website]: <https://www.python.org/downloads/>

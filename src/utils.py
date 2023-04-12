@@ -2,9 +2,16 @@
 File: utils.py
 Author: Saúl Sosa Díaz
 Date: 12/04/2023
-Description: Implementation of the K-Means algorithm for solving a clustering problem.
-This implementation generates random centroids and random assigns points to the cluster of the closest centroid.
-Then, the centroids of each cluster are recalculated and the process is repeated until no further changes are made to the clusters.
+Description: This Python file contains functions to process text and create a vocabulary from a set of text data.
+Defined functions:
+  * correctSpelling: takes a sentence as input and corrects the spelling using the TextBlob library, and returns the sentence without spelling errors.
+  * deleteStopWords: removes stop words from a sentence, which are passed as input, and returns the sentence without these words.
+  * deleteHtml: removes HTML tags from a sentence and returns only the text.
+  * lematize: uses the spacy library to tokenize and lemmatize the words of a sentence and returns the lemmatized version of the sentence.
+  * writeFile: writes the provided content to a file, along with the number of lines of content.
+  * readFile: reads a CSV file using pandas and returns a DataFrame object containing the data read from the CSV file. The column names are set to 'text' and 'sentiment'.
+  * createVocab: processes the text data in the input DataFrame, removes stop words, HTML tags and performs lemmatization. 
+                 It then creates a vocabulary of all unique words in the DataFrame that exist in the loaded dictionary and returns a string containing these words separated by line breaks.
 """
 
 import pandas as pd
@@ -15,13 +22,14 @@ from textblob import TextBlob
 import spacy
 nltk.download('words')
 nltk.download('stopwords')
-
 # Contains a list of more than 236,000 English words, from common words to specialized terms.
-words = set(nltk.corpus.words.words())
+dictionary = set(nltk.corpus.words.words())
 # Contains a list of stopwords in english
 stopwords = nltk.corpus.stopwords.words('english')
 # Contains the important object to lemmatize
 nlp = spacy.load('en_core_web_sm')
+
+
 
 def correctSpelling(sentence):
     """
@@ -36,6 +44,7 @@ def correctSpelling(sentence):
     return ' '.join(correccion)
 
 
+
 def deleteStopWords(sentence):
     """
     Eliminate stopwords from sentences.  
@@ -43,6 +52,7 @@ def deleteStopWords(sentence):
     @returns string The setence without
     """
     return " ".join([palabra for palabra in sentence.split() if palabra not in stopwords])
+
 
 
 def deleteHtml(sentence):
@@ -54,6 +64,7 @@ def deleteHtml(sentence):
     removing any HTML tags using the BeautifulSoup library.
     """
     return BeautifulSoup(sentence, 'html.parser').get_text()
+
 
 
 def lematizar(sentence):
@@ -70,18 +81,47 @@ def lematizar(sentence):
             lemas.append(token.lemma_)
     return ' '.join(lemas)
 
-def writeFile(nameOut="vocabulario.txt"):
-    pass
+
+
+def writeFile(content, nameOut="vocabulario.txt"):
+    """
+    The function writes the given content to a file named "vocabulario.txt" and also writes the number
+    of lines in the content to the file.
+    @param content - The content that will be written to the file.
+    @param [nameOut=vocabulario.txt] - The name of the output file that will be created. If no name is
+    provided, the default name "vocabulario.txt" will be used.
+    """
+    with open(nameOut, 'w') as file:
+        file.write("Numero de palabras:" + content.count('\n') + "\n")
+        file.write(content)
+
 
 
 def readFile(nameIn="F75_train.csv"):
+    """
+    This function reads a CSV file with pandas, names the columns, and returns a dataframe.
+    @param [nameIn=F75_train.csv] - The name of the CSV file to be read. If no name is provided, the
+    default file name "F75_train.csv" will be used.
+    @returns The function `readFile` returns a pandas DataFrame object containing the data read from a
+    CSV file with two columns named 'texto' and 'sentimiento'.
+    """
     # Read CSV file with pandas
-    df = pd.read_csv('F75_train.csv', header=None)
+    df = pd.read_csv(nameIn, header=None)
     # Name the columns
     df.columns = ['texto', 'sentimiento']  
     return df
 
+
+
 def createVocab(df):
+    """
+    The function creates a vocabulary by preprocessing text data and extracting unique words from it,
+    while also checking if they exist in a given dictionary.
+    @param df - a pandas DataFrame containing a column named 'texto' which contains text data to be
+    processed and used to create a vocabulary.
+    @returns a string containing all the words in the input dataframe that exist in a pre-defined
+    dictionary. The words are sorted alphabetically and separated by a newline character.
+    """
     # Preprocessing
     # Change to lowercase
     df['texto'] = df['texto'].apply(lambda x: x.lower())
@@ -104,6 +144,6 @@ def createVocab(df):
             wordSet.add(palabra)
     for wordSorted in sorted(list(wordSet)):
         # Check that it exists in the dictionary
-        if wordSorted in words:  
+        if wordSorted in dictionary:
             words += wordSorted + "\n"
     return words
