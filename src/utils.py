@@ -20,6 +20,7 @@ import nltk
 from bs4 import BeautifulSoup
 from textblob import TextBlob
 import spacy
+from colors import bcolors
 nltk.download('words')
 nltk.download('stopwords')
 # Contains a list of more than 236,000 English words, from common words to specialized terms.
@@ -92,7 +93,7 @@ def writeFile(content, nameOut="vocabulario.txt"):
     provided, the default name "vocabulario.txt" will be used.
     """
     with open(nameOut, 'w') as file:
-        file.write("Numero de palabras:" + content.count('\n') + "\n")
+        file.write("Numero de palabras:" + str(content.count('\n')) + "\n")
         file.write(content)
 
 
@@ -146,4 +147,6 @@ def createVocab(df):
         # Check that it exists in the dictionary
         if wordSorted in dictionary:
             words += wordSorted + "\n"
+    
+    print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.end)
     return words
