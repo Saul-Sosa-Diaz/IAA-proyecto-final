@@ -1,4 +1,4 @@
-Numero de palabras:3070
+Numero de palabras:2996
 abandon
 ability
 able
@@ -13,9 +13,7 @@ accommodation
 accomplish
 accord
 accordance
-according
 account
-accounting
 accumulate
 achieve
 acid
@@ -47,10 +45,8 @@ adopt
 adoption
 adult
 advance
-advanced
 advantage
 advertise
-advertising
 advise
 advisory
 aeronautic
@@ -211,7 +207,6 @@ b
 baby
 back
 backdrop
-backing
 bacon
 bad
 baffle
@@ -230,6 +225,7 @@ bank
 banker
 banking
 bare
+bargain
 barge
 bark
 barley
@@ -303,7 +299,6 @@ boomerang
 boost
 boot
 bore
-boring
 borrow
 borrower
 boss
@@ -319,10 +314,10 @@ boycott
 brain
 branch
 brand
-branded
 brazil
 bread
 breadth
+break
 breakfast
 breakup
 breeze
@@ -334,7 +329,6 @@ bring
 brisk
 broad
 broadcast
-broken
 broker
 brokerage
 brother
@@ -368,7 +362,6 @@ calendar
 calf
 call
 caller
-came
 cameo
 camera
 camp
@@ -399,6 +392,7 @@ carriage
 carrier
 carrot
 carry
+cart
 cartoon
 case
 cash
@@ -440,7 +434,6 @@ charge
 charming
 chart
 charter
-chartered
 chase
 cheap
 check
@@ -453,7 +446,6 @@ chill
 china
 choice
 choose
-chose
 chromic
 cider
 cinema
@@ -473,7 +465,6 @@ classic
 classroom
 clause
 clean
-cleaning
 clear
 clearly
 clerical
@@ -482,31 +473,27 @@ client
 climate
 climb
 clinical
-clinking
+clink
 clock
 close
-closed
 closely
 closure
 clothing
 club
 coast
 coat
-coated
-coating
 cod
 code
 cold
 collect
 collection
 collective
-collins
+collin
 collision
 color
 coma
 combination
 combine
-combined
 come
 comfortably
 commence
@@ -555,7 +542,6 @@ concentrate
 concept
 conceptual
 concern
-concerned
 conclude
 concord
 concrete
@@ -580,7 +566,6 @@ consideration
 consist
 consistency
 consolidate
-consolidated
 consolidation
 consortium
 constitute
@@ -588,7 +573,6 @@ construct
 construction
 consult
 consultant
-consulting
 consumer
 consumption
 contact
@@ -598,7 +582,6 @@ content
 continent
 continental
 continue
-continued
 continuous
 contract
 contractor
@@ -611,8 +594,8 @@ convenience
 convenient
 conversion
 convert
-converted
 convertible
+convey
 convince
 cook
 cool
@@ -622,14 +605,12 @@ copy
 copyright
 core
 corner
-corp
 corporate
 corporation
 corps
 correct
 correlation
 correspond
-corresponding
 cos
 cost
 costly
@@ -682,15 +663,12 @@ custom
 customer
 cut
 cutlery
-cutting
 cycle
-cycling
 d
 da
 daily
 dairy
 damage
-data
 date
 datum
 day
@@ -706,7 +684,6 @@ deck
 decline
 decoration
 decrease
-dedicate
 deduce
 deep
 deer
@@ -721,7 +698,6 @@ delegation
 delete
 delicate
 delight
-delighted
 deliver
 delivery
 demand
@@ -733,6 +709,7 @@ department
 departure
 depend
 deposit
+depositor
 depot
 depth
 deputy
@@ -747,7 +724,6 @@ desk
 destination
 destiny
 detail
-detailed
 detect
 detection
 detector
@@ -756,6 +732,7 @@ develop
 developer
 development
 device
+diabetes
 diagnostic
 diagram
 dial
@@ -772,7 +749,6 @@ digit
 digital
 diligence
 dilute
-diluted
 dimension
 diminish
 dine
@@ -793,6 +769,7 @@ discount
 discussion
 disk
 dismiss
+dismount
 dispel
 display
 disposal
@@ -809,7 +786,6 @@ district
 diversity
 divest
 divide
-divided
 dividend
 division
 document
@@ -860,12 +836,12 @@ eagle
 early
 earn
 earning
-easier
 east
 easter
 eastern
 easy
 eat
+eaten
 eccentricity
 economic
 economy
@@ -889,7 +865,6 @@ electrical
 electricity
 electrification
 electronic
-electronics
 element
 elevator
 eligible
@@ -1018,6 +993,7 @@ factory
 fail
 fair
 fall
+fallen
 family
 far
 farm
@@ -1034,7 +1010,6 @@ federal
 federation
 feed
 feel
-fell
 femora
 fence
 ferrochrome
@@ -1047,7 +1022,6 @@ fifth
 figure
 file
 fill
-filling
 filter
 final
 finance
@@ -1056,7 +1030,6 @@ financially
 find
 finding
 fine
-finer
 finger
 finish
 finland
@@ -1065,7 +1038,6 @@ fireplace
 firm
 fiscal
 fish
-fishing
 fist
 fit
 fitness
@@ -1185,12 +1157,11 @@ golden
 good
 goodwill
 goodyear
-got
 governance
 government
 grade
 gradually
-grafting
+graft
 grain
 gram
 grand
@@ -1202,7 +1173,6 @@ grate
 gratuitous
 great
 green
-grew
 grid
 grind
 groan
@@ -1210,6 +1180,7 @@ gross
 ground
 group
 grow
+grown
 growth
 guidance
 guide
@@ -1221,10 +1192,10 @@ hack
 half
 hall
 halt
+han
 hand
-handed
 handle
-handling
+handy
 hanna
 happen
 happy
@@ -1239,20 +1210,19 @@ hasten
 hastily
 hat
 haul
+have
+haven
 head
 header
 headlong
 headquarter
-headquarters
-healing
+heal
 health
 healthy
 hear
-hearing
 hearst
 heart
 heat
-heating
 heavily
 heavy
 hectare
@@ -1263,7 +1233,6 @@ herald
 hernia
 hero
 high
-higher
 highlight
 highly
 highway
@@ -1285,7 +1254,6 @@ home
 homeward
 honor
 hook
-hooked
 hope
 horizon
 horrid
@@ -1297,13 +1265,13 @@ hotel
 hour
 house
 household
-housewive
+housewife
 housing
 hover
 huge
 hull
 human
-hunting
+hunt
 hurt
 hut
 hydraulic
@@ -1439,10 +1407,8 @@ invisible
 invitation
 invite
 involve
-involved
 iris
 iron
-ironmaking
 irrevocable
 island
 ism
@@ -1454,7 +1420,7 @@ item
 ivory
 j
 japan
-jeans
+jean
 jet
 job
 join
@@ -1471,7 +1437,7 @@ keg
 keratitis
 key
 keyboard
-kicking
+kick
 kill
 kind
 king
@@ -1510,19 +1476,16 @@ lea
 lead
 leader
 leadership
-leading
 leak
 lean
 learn
-learning
 lease
-leasing
 leave
 lee
-left
 legacy
 legal
 lemon
+lend
 lender
 length
 let
@@ -1538,15 +1501,12 @@ lie
 life
 lifetime
 lift
-lifting
 light
-lighting
 lightning
 like
 likely
 limestone
 limit
-limited
 line
 linen
 liner
@@ -1560,7 +1520,6 @@ literature
 litter
 little
 live
-living
 load
 loan
 local
@@ -1572,7 +1531,6 @@ lodge
 log
 logistic
 logistical
-logistics
 long
 look
 lookout
@@ -1580,7 +1538,6 @@ loose
 lose
 loss
 lot
-loud
 loudly
 love
 lovely
@@ -1595,6 +1552,7 @@ lunch
 lure
 luxury
 lynch
+m
 mac
 machine
 machinery
@@ -1633,7 +1591,6 @@ margin
 marine
 maritime
 mark
-marked
 market
 marketing
 martin
@@ -1657,7 +1614,6 @@ meat
 mechanic
 mechanical
 mechanism
-media
 mediation
 mediator
 medical
@@ -1666,7 +1622,7 @@ medium
 meet
 meeting
 megawatt
-melting
+melt
 member
 memorandum
 memory
@@ -1709,7 +1665,6 @@ minority
 minute
 mission
 mix
-mixed
 mo
 mobile
 mobility
@@ -1790,7 +1745,6 @@ nitrogen
 nodular
 nominal
 nomination
-nonrecurring
 nonresidential
 noon
 normal
@@ -1835,14 +1789,11 @@ oh
 oil
 oka
 old
-omen
 one
 onion
 onwards
 open
-opening
 operate
-operating
 operation
 operational
 operative
@@ -1884,7 +1835,6 @@ overseer
 overshadow
 overview
 owe
-owing
 own
 owner
 ownership
@@ -2018,7 +1968,7 @@ please
 pleasurable
 pledge
 plot
-plummeted
+plummet
 plump
 plunge
 plus
@@ -2056,7 +2006,6 @@ potential
 poultry
 pound
 pour
-pouring
 powder
 power
 pox
@@ -2066,7 +2015,6 @@ precipitate
 precision
 prefer
 preference
-preferred
 preliminary
 premature
 premise
@@ -2083,6 +2031,7 @@ press
 pressurize
 presumptive
 pretty
+prevail
 previous
 previously
 price
@@ -2091,7 +2040,6 @@ primarily
 primary
 principal
 print
-printing
 prior
 privacy
 private
@@ -2120,6 +2068,7 @@ progress
 prohibit
 project
 projection
+prolong
 prolongation
 promise
 promotion
@@ -2161,13 +2110,14 @@ push
 put
 q
 quadriga
-qualified
+qualify
 quality
 quarter
 quarterly
 question
 quick
 quickly
+quit
 quote
 r
 rabbit
@@ -2189,7 +2139,6 @@ rapid
 rapidly
 rate
 ratification
-rating
 ratio
 rationally
 raw
@@ -2206,6 +2155,7 @@ realize
 reason
 rebound
 rebuild
+rebuilt
 recall
 recast
 receipt
@@ -2234,10 +2184,9 @@ reduction
 redundant
 reference
 refine
-refined
-refining
 reflect
 reform
+refurbish
 refurbishment
 refuse
 regard
@@ -2255,7 +2204,6 @@ reinforce
 reiterate
 reject
 relate
-related
 relation
 relationship
 relatively
@@ -2299,7 +2247,6 @@ requirement
 research
 reservation
 reserve
-reserved
 resident
 residential
 residue
@@ -2308,7 +2255,7 @@ resin
 resolution
 resolve
 resort
-resounding
+resound
 resource
 respective
 respectively
@@ -2326,13 +2273,14 @@ retainer
 retell
 retire
 retirement
+retrieve
 return
 reveal
 revenue
 reverie
 review
 revise
-revolving
+revolve
 reward
 rib
 rice
@@ -2353,9 +2301,10 @@ roadway
 robust
 rock
 rocket
+roger
 roi
 role
-rolling
+roll
 roof
 room
 root
@@ -2371,10 +2320,8 @@ rubber
 rug
 ruin
 rule
-ruling
 run
 runaway
-running
 rural
 rush
 russia
@@ -2385,7 +2332,6 @@ sac
 sack
 sad
 safety
-said
 saint
 sal
 salary
@@ -2398,7 +2344,7 @@ san
 sanitation
 sappy
 sarcoma
-satisfy
+satisfied
 save
 saving
 savior
@@ -2416,9 +2362,8 @@ scheme
 scholarship
 science
 scissor
-scissors
 scope
-scoring
+score
 scrap
 screen
 screw
@@ -2457,7 +2402,7 @@ sentry
 separate
 separately
 sept
-septum
+septa
 series
 serve
 server
@@ -2477,7 +2422,7 @@ share
 shareholder
 sharp
 sharply
-shedding
+shed
 sheet
 shell
 shelter
@@ -2485,13 +2430,11 @@ shield
 shift
 ship
 shipbuilder
-shipbuilding
 shipment
 shipping
 shipyard
 shock
 shoe
-shoot
 shop
 shopping
 short
@@ -2517,7 +2460,6 @@ simultaneously
 sing
 single
 singular
-sink
 sip
 sir
 sister
@@ -2535,14 +2477,12 @@ slash
 slaughter
 slaughterhouse
 slaveholder
-slaveholding
 slavery
 slice
 slide
 slight
 slightly
 slip
-slipped
 slot
 slow
 small
@@ -2550,8 +2490,8 @@ smart
 smell
 smelter
 smoke
-smoking
 smudge
+snack
 snap
 snow
 snowball
@@ -2600,8 +2540,6 @@ split
 spokesman
 sponsor
 sport
-sporting
-sports
 spot
 spray
 spread
@@ -2626,7 +2564,6 @@ statement
 station
 stationary
 statistic
-statistics
 status
 statutory
 stay
@@ -2654,7 +2591,6 @@ strategic
 strategy
 streak
 stream
-streaming
 streamline
 street
 strength
@@ -2699,12 +2635,14 @@ summer
 summit
 summon
 sun
+sunk
 sunrise
 superior
 supermarket
 superstructure
 supervise
 supervision
+supervisor
 supplement
 supplier
 supply
@@ -2727,7 +2665,8 @@ symbol
 symphony
 synonymous
 system
-tables
+t
+table
 tablet
 tack
 tackle
@@ -2736,7 +2675,6 @@ tailor
 take
 talent
 talk
-talking
 tank
 tap
 tape
@@ -2774,11 +2712,9 @@ termination
 terrify
 territory
 test
-testing
 textile
 th
 thank
-thanks
 theme
 therapist
 thermal
@@ -2835,7 +2771,6 @@ trailer
 train
 trainee
 trainer
-training
 transaction
 transfer
 transport
@@ -2867,7 +2802,6 @@ turk
 turkey
 turn
 turnaround
-turning
 turnover
 turntable
 tut
@@ -2885,7 +2819,6 @@ uncertainty
 unchanged
 underground
 underlie
-underlying
 understand
 undertake
 underweight
@@ -2902,10 +2835,9 @@ unlike
 unload
 unnamed
 unprofitable
-unravelled
+unravel
 unrestricted
 unstable
-unsuited
 update
 upgrade
 uplift
@@ -2953,6 +2885,7 @@ vicinity
 video
 view
 viewpoint
+villa
 village
 virgin
 virus
@@ -2969,7 +2902,6 @@ voice
 void
 volume
 vote
-voting
 w
 wafer
 wage
@@ -2981,14 +2913,12 @@ walter
 want
 warehouse
 warn
-warning
 warrant
 washable
 waste
 watch
 watchtower
 water
-watering
 watermark
 wave
 way
@@ -3009,7 +2939,6 @@ weight
 welcome
 welfare
 well
-welling
 wert
 west
 western
@@ -3035,7 +2964,6 @@ wind
 window
 wine
 winter
-wintering
 wipe
 wire
 wish
@@ -3046,8 +2974,6 @@ wooden
 word
 work
 worker
-working
-works
 workshop
 world
 worldly

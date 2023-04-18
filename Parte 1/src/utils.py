@@ -14,7 +14,9 @@ Defined functions:
                  It then creates a vocabulary of all unique words in the DataFrame that exist in the loaded dictionary and returns a string containing these words separated by line breaks.
 """
 
+from tqdm import tqdm
 import pandas as pd
+import time
 import re
 import nltk
 from bs4 import BeautifulSoup
@@ -32,18 +34,14 @@ nlp = spacy.load('en_core_web_sm')
 
 
 
-def correctSpelling(sentence):
+def correctSpelling(word):
     """
-    The function corrects the spelling of a given sentence using the TextBlob library in Python.
-    @param sentence - a string containing one or more sentences that may contain spelling errors.
-    @returns string - The sentence without spelling mistakes.
+    The function corrects the spelling of a given word using the TextBlob library in Python.
+    @param word - a string containing a word that may contain spelling errors.
+    @returns string - The corrected version of the input word.
     """
-    blob = TextBlob(sentence)
-    correccion = []
-    for words in blob.sentences:
-        correccion.append(str(words.correct()))
-    return ' '.join(correccion)
-
+    corrected_word = TextBlob(word).correct()
+    return str(corrected_word)
 
 
 def deleteStopWords(sentence):
@@ -68,19 +66,19 @@ def deleteHtml(sentence):
 
 
 
-def lematizar(sentence):
+def lemmatize(word):
     """
-    The function lematizar takes a sentence as input, uses the spaCy library to tokenize and lemmatize
-    the words in the sentence, and returns a string of the lemmatized words.
-    @param sentence - a string containing a sentence to be lemmatized.
-    @returns a string that contains the lemmatized version of the input sentence.
+    The lemmatize function takes a word as input, lemmatizes it using the spaCy library,
+    and returns the lemmatized form of the input word.
+    @param word - a string containing the word to be lemmatized.
+    @returns a string containing the lemmatized form of the input word.
     """
-    doc = nlp(sentence)
-    lemas = []
+    doc = nlp(word)
+    lemma = ''
     for token in doc:
         if not token.is_punct and not token.is_stop:
-            lemas.append(token.lemma_)
-    return ' '.join(lemas)
+            lemma = token.lemma_
+    return lemma
 
 
 
@@ -123,30 +121,41 @@ def createVocab(df):
     @returns a string containing all the words in the input dataframe that exist in a pre-defined
     dictionary. The words are sorted alphabetically and separated by a newline character.
     """
+    startTime = time.perf_counter()
     # Preprocessing
-    # Change to lowercase
-    df['texto'] = df['texto'].apply(lambda x: x.lower())
     # Remove punctuation marks and numbers
     df['texto'] = df['texto'].apply(lambda x: re.sub('[^^a-zA-Z_\s]', '', x))
     # Delete StopWords
     df['texto'] = df['texto'].apply(lambda x: deleteStopWords(x))
     # Delete HTML tags
     df['texto'] = df['texto'].apply(lambda x: deleteHtml(x))
-    # Correct spelling
-    df['texto'] = df['texto'].apply(lambda x: correctSpelling(x))
-    # Lemantizar
-    df['texto'] = df['texto'].apply(lambda x: lematizar(x))
+   
     
-    #Create the vocab
-    words = ""
-    wordSet = set()
+    words = set()
     for sentence in df['texto']:
-        for palabra in sentence.split():
-            wordSet.add(palabra)
-    for wordSorted in sorted(list(wordSet)):
+        for word in sentence.split():
+            words.add(word)
+    
+    words = list(words)
+    
+    print(bcolors.OKCYAN + "Generando vocabulario." + bcolors.ENDC)
+    for i in tqdm(range(len(words)),bar_format='{l_bar}{bar:30}{r_bar}', leave=True):
+        # Change word to lowercase
+        words[i] = words[i].lower()
+        # Correct spelling
+        words[i] = correctSpelling(words[i])
+        # Lemmatize
+        words[i] = lemmatize(words[i])
+        
+    words = set(words)
+
+    #Create the vocab
+    wordsString = ""
+    for wordSorted in sorted(list(words)):
         # Check that it exists in the dictionary
         if wordSorted in dictionary:
-            words += wordSorted + "\n"
-    
+            wordsString += wordSorted + "\n"
+    endTime = time.perf_counter()
+    print(endTime-startTime)
     print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.ENDC)
-    return words
+    return wordsString
