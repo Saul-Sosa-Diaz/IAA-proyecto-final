@@ -33,15 +33,17 @@ stopwords = nltk.corpus.stopwords.words('english')
 nlp = spacy.load('en_core_web_sm')
 
 
-
 def correctSpelling(word):
     """
     The function corrects the spelling of a given word using the TextBlob library in Python.
     @param word - a string containing a word that may contain spelling errors.
     @returns string - The corrected version of the input word.
     """
-    corrected_word = TextBlob(word).correct()
-    return str(corrected_word)
+    if word in dictionary:
+        return word
+    else:
+        corrected_word = TextBlob(word).correct()
+        return str(corrected_word)
 
 
 def deleteStopWords(sentence):
@@ -121,7 +123,6 @@ def createVocab(df):
     @returns a string containing all the words in the input dataframe that exist in a pre-defined
     dictionary. The words are sorted alphabetically and separated by a newline character.
     """
-    startTime = time.perf_counter()
     # Preprocessing
     # Remove punctuation marks and numbers
     df['texto'] = df['texto'].apply(lambda x: re.sub('[^^a-zA-Z_\s]', '', x))
@@ -130,7 +131,6 @@ def createVocab(df):
     # Delete HTML tags
     df['texto'] = df['texto'].apply(lambda x: deleteHtml(x))
    
-    
     words = set()
     for sentence in df['texto']:
         for word in sentence.split():
@@ -138,7 +138,7 @@ def createVocab(df):
     
     words = list(words)
     
-    print(bcolors.OKCYAN + "Generando vocabulario." + bcolors.ENDC)
+    print(bcolors.OKCYAN + "Corrigiendo Y lematizando palabras." + bcolors.ENDC)
     for i in tqdm(range(len(words)),bar_format='{l_bar}{bar:30}{r_bar}', leave=True):
         # Change word to lowercase
         words[i] = words[i].lower()
@@ -148,14 +148,13 @@ def createVocab(df):
         words[i] = lemmatize(words[i])
         
     words = set(words)
-
+    print(bcolors.OKCYAN + "Filtrando palabras" + bcolors.ENDC)
     #Create the vocab
     wordsString = ""
     for wordSorted in sorted(list(words)):
         # Check that it exists in the dictionary
         if wordSorted in dictionary:
             wordsString += wordSorted + "\n"
-    endTime = time.perf_counter()
-    print(endTime-startTime)
+  
     print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.ENDC)
     return wordsString
