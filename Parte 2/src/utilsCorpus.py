@@ -1,22 +1,12 @@
 """
 File: utils.py
 Author: Saúl Sosa Díaz
-Date: 12/04/2023
-Description: This Python file contains functions to process text and create a vocabulary from a set of text data.
-Defined functions:
-  * correctSpelling: takes a sentence as input and corrects the spelling using the TextBlob library, and returns the sentence without spelling errors.
-  * deleteStopWords: removes stop words from a sentence, which are passed as input, and returns the sentence without these words.
-  * deleteHtml: removes HTML tags from a sentence and returns only the text.
-  * lematize: uses the spacy library to tokenize and lemmatize the words of a sentence and returns the lemmatized version of the sentence.
-  * writeFile: writes the provided content to a file, along with the number of lines of content.
-  * readFile: reads a CSV file using pandas and returns a DataFrame object containing the data read from the CSV file. The column names are set to 'text' and 'sentiment'.
-  * createVocab: processes the text data in the input DataFrame, removes stop words, HTML tags and performs lemmatization. 
-                 It then creates a vocabulary of all unique words in the DataFrame that exist in the loaded dictionary and returns a string containing these words separated by line breaks.
+Date: 19/04/2023
+Description: This Python file contains functions to process text and create a Corpus from a set of text data.
 """
 
 from tqdm import tqdm
 import pandas as pd
-import time
 import re
 import nltk
 from bs4 import BeautifulSoup
@@ -84,16 +74,14 @@ def lemmatize(word):
 
 
 
-def writeFile(content, nameOut="vocabulario.txt"):
+def writeFile(content, nameOut):
     """
-    The function writes the given content to a file named "vocabulario.txt" and also writes the number
-    of lines in the content to the file.
+    The function `writeFile` writes the given content to a file with the given name.
     @param content - The content that will be written to the file.
-    @param [nameOut=vocabulario.txt] - The name of the output file that will be created. If no name is
-    provided, the default name "vocabulario.txt" will be used.
+    @param nameOut - The name of the file that will be created or overwritten with the content provided
+    in the 'content' parameter.
     """
     with open(nameOut, 'w') as file:
-        file.write("Numero de palabras:" + str(content.count('\n')) + "\n")
         file.write(content)
 
 
@@ -113,48 +101,71 @@ def readFile(nameIn="F75_train.csv"):
     return df
 
 
-
-def createVocab(df):
+def processCorpus(df):
     """
-    The function creates a vocabulary by preprocessing text data and extracting unique words from it,
-    while also checking if they exist in a given dictionary.
-    @param df - a pandas DataFrame containing a column named 'texto' which contains text data to be
-    processed and used to create a vocabulary.
-    @returns a string containing all the words in the input dataframe that exist in a pre-defined
-    dictionary. The words are sorted alphabetically and separated by a newline character.
+    The function preprocesses a corpus by removing punctuation marks, numbers, HTML tags, and stop
+    words, corrects spelling, lemmatizes words, and returns a sorted final corpus.
+    @param df - The input dataframe containing the text data to be processed.
+    @returns a string that contains the final corpus of words after preprocessing, correction of
+    spelling, lemmatization, and filtering out words that are not in the dictionary.
     """
     # Preprocessing
     # Remove punctuation marks and numbers
-    df['texto'] = df['texto'].apply(lambda x: re.sub('[^^a-zA-Z_\s]', '', x))
+    df = df.apply(lambda x: re.sub('[^^a-zA-Z_\s]', '', x))
     # Delete StopWords
-    df['texto'] = df['texto'].apply(lambda x: deleteStopWords(x))
+    df = df.apply(lambda x: deleteStopWords(x))
     # Delete HTML tags
-    df['texto'] = df['texto'].apply(lambda x: deleteHtml(x))
-   
-    words = set()
-    for sentence in df['texto']:
+    df = df.apply(lambda x: deleteHtml(x))
+
+    words = list()
+    for sentence in df:
         for word in sentence.split():
-            words.add(word)
+            words.append(word)
     
-    words = list(words)
-    
-    print(bcolors.OKCYAN + "Corrigiendo Y lematizando palabras." + bcolors.ENDC)
-    for i in tqdm(range(len(words)),bar_format='{l_bar}{bar:30}{r_bar}', leave=True):
+    finalCorpus = []
+    print(bcolors.OKCYAN + "\tCorrigiendo y lematizando palabras." + bcolors.ENDC)
+    for i in tqdm(range(len(words)), bar_format='{l_bar}{bar:30}{r_bar}', leave=True):
         # Change word to lowercase
         words[i] = words[i].lower()
         # Correct spelling
         words[i] = correctSpelling(words[i])
         # Lemmatize
         words[i] = lemmatize(words[i])
-        
-    words = set(words)
-    print(bcolors.OKCYAN + "Filtrando palabras" + bcolors.ENDC)
-    #Create the vocab
-    wordsString = ""
-    for wordSorted in sorted(list(words)):
-        # Check that it exists in the dictionary
-        if wordSorted in dictionary:
-            wordsString += wordSorted + "\n"
-    wordsString += "<unk> \n"
-    print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.ENDC)
-    return wordsString
+        if words[i] in dictionary:
+            finalCorpus.append(words[i])
+    
+    finalCorpus.sort()
+    return '\n'.join(finalCorpus)
+
+
+def createAllCorpus(df):
+    """
+    This function creates three different corpora based on the sentiment of the news articles in a given
+    dataframe and returns them.
+    @param df - The input dataframe containing the news articles and their corresponding sentiment
+    labels.
+    @returns :string - three variables: negativeCorpus, neutralCorpus, and positiveCorpus.
+    """
+    neutralCorpus = df[df['sentimiento'] == "neutral"]['texto']
+    positiveCorpus = df[df['sentimiento'] == "positive"]['texto']
+    negativeCorpus = df[df['sentimiento'] == "negative"]['texto']
+    
+    # Número de noticias de cada corpus
+    stringNegativeCorpus = "Numero de noticias del corpus: " + \
+        str(neutralCorpus.shape[0]) + "\n"
+    stringNeutral = "Numero de noticias del corpus: " + \
+        str(positiveCorpus.shape[0]) + "\n"
+    stringPositiveCorpus = "Numero de noticias del corpus: " + \
+        str(negativeCorpus.shape[0]) + "\n"
+    
+    print(bcolors.OKCYAN + "Creando corpus negativo" + bcolors.ENDC)
+    stringNegativeCorpus += processCorpus(negativeCorpus)
+    print(bcolors.OKCYAN + "Creando corpus neutro" + bcolors.ENDC)
+    stringNeutral += processCorpus(neutralCorpus)
+    print(bcolors.OKCYAN + "Creando corpus positivo" + bcolors.ENDC)
+    stringPositiveCorpus += processCorpus(positiveCorpus)
+
+    print(bcolors.OKGREEN + "Se han creado los corpus correctamente." + bcolors.ENDC)
+    return stringNegativeCorpus, stringNeutral, stringPositiveCorpus
+
+
