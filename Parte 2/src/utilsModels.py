@@ -77,7 +77,7 @@ def createModel(corpus, vocabulary):
 
     for word in vocabulary:
         frec = corpus.count(word)
-        logProb = math.log10((frec + 1)/(WORDSINCORPUS + WORDSINVOCAB))
+        logProb = math.log((frec + 1)/(WORDSINCORPUS + WORDSINVOCAB))
         probs[word] = [frec, logProb]
 
     return probs
