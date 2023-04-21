@@ -1,4 +1,4 @@
-Numero de noticias del corpus: 305
+Numero de noticias del corpus: 633
 abb
 abb
 ability

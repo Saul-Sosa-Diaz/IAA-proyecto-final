@@ -14,9 +14,9 @@ def main():
     negativeCorpus, numbersNegativeNews = readCorpus(
         os.path.join(".", "corpus", "negative_corpus.txt"))
     positiveCorpus, numbersPositiveNews = readCorpus(
-        os.path.join(".", "corpus", "neutral_corpus.txt"))
-    neutralCorpus, numbersNeutralNews = readCorpus(
         os.path.join(".", "corpus", "positive_corpus.txt"))
+    neutralCorpus, numbersNeutralNews = readCorpus(
+        os.path.join(".", "corpus", "neutral_corpus.txt"))
     
     vocabulary = readVocab(os.path.join(".", "data", "vocabulario.txt"))
 
@@ -36,6 +36,7 @@ def main():
     
     writeFileModel(os.path.join(".", "models", "modelo_lenguaje_T.txt"),
                    numbersNeutralNews, len(neutralCorpus), neutralModel)
+    
     print(bcolors.OKGREEN +
           "Se han creado el modelo neutro correctamente" + bcolors.ENDC)
 

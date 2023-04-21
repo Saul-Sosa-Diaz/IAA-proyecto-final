@@ -152,11 +152,11 @@ def createAllCorpus(df):
     
     # Número de noticias de cada corpus
     stringNegativeCorpus = "Numero de noticias del corpus: " + \
-        str(neutralCorpus.shape[0]) + "\n"
-    stringNeutral = "Numero de noticias del corpus: " + \
-        str(positiveCorpus.shape[0]) + "\n"
-    stringPositiveCorpus = "Numero de noticias del corpus: " + \
         str(negativeCorpus.shape[0]) + "\n"
+    stringNeutral = "Numero de noticias del corpus: " + \
+        str(neutralCorpus.shape[0]) + "\n"
+    stringPositiveCorpus = "Numero de noticias del corpus: " + \
+        str(positiveCorpus.shape[0]) + "\n"
     
     print(bcolors.OKCYAN + "Creando corpus negativo" + bcolors.ENDC)
     stringNegativeCorpus += processCorpus(negativeCorpus)

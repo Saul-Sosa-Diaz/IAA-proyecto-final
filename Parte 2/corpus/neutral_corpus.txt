@@ -1,4 +1,4 @@
-Numero de noticias del corpus: 633
+Numero de noticias del corpus: 1562
 abb
 able
 ably

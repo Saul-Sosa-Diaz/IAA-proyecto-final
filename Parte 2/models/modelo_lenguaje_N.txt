@@ -1,4 +1,4 @@
-Numero de documentos (noticias) del corpus :1562
+Numero de documentos (noticias) del corpus :305
 Numero de palabras del corpus:2614
 Palabra:abandon Frec:1 LogProb:-7.9658927350845286
 Palabra:abb Frec:0 LogProb:-8.659039915644474

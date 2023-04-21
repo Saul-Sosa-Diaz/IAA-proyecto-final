@@ -1,4 +1,4 @@
-Numero de noticias del corpus: 1562
+Numero de noticias del corpus: 305
 abandon
 accommodation
 accord
