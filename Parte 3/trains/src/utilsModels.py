@@ -111,4 +111,33 @@ def writeFileModel(nameOut, numberOfNews, numberOfWordsInCorpus, probs: dict):
             stringToFile += "Palabra:" + word + " Frec:" + \
                 str(prob[0]) + " LogProb:" + str(prob[1]) + "\n"
 
+        stringToFile = stringToFile[:-1]
         file.write(stringToFile)
+
+
+def readFile(nameIn):
+    with open(nameIn, "r") as fileContent:
+        return fileContent.read()
+
+
+
+def getProb(model, news):
+    model = model.split('\n')
+    numberOfNewsThisType = int(model[0].split(":")[1])
+    probs = []
+    
+    words = {}
+    for j in range(2, len(model)):
+        words[model[j].split(" ")[0].split(":")[1]] = float(model[j].split(":")[-1])
+    
+    for sentence in news.split('\n'):
+        prob = 0
+        for word in sentence.split(" "):
+            try:
+                prob += words[word] 
+            except:
+                prob += words["<unk>"]
+        prob += math.log(numberOfNewsThisType/2500)
+        probs.append(prob)
+
+    return probs

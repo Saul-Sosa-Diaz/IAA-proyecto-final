@@ -9,8 +9,8 @@ import os
 
 def main():
     df = readFileTest(os.path.join(".", "data", "F75_train2.csv"))
-    corpusTest = createCorpusTest(df)
-    writeFile(corpusTest, os.path.join(".", "corpus", "corpus_test.txt"))
+    Test = preprocesarTest(df['texto'])
+    writeFile(Test, os.path.join(".", "data", "PreprocesadoTest.txt"))
 
 
 if __name__ == "__main__":

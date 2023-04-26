@@ -100,6 +100,8 @@ def readFileTrain(nameIn="F75_train.csv"):
     df.columns = ['texto', 'sentimiento']  
     return df
 
+
+
 def readFileTest(nameIn="F75_train.csv"):
     """
     This function reads a CSV file with pandas, names the columns, and returns a dataframe.
@@ -153,10 +155,7 @@ def processCorpus(df):
     return '\n'.join(finalCorpus)
 
 
-def createCorpusTest(df):
-    stringTestCorpus = ""
-    stringTestCorpus += processCorpus(df)
-    return stringTestCorpus 
+
 
 def createAllCorpusTrain(df):
     """
@@ -189,3 +188,32 @@ def createAllCorpusTrain(df):
     return stringNegativeCorpus, stringNeutral, stringPositiveCorpus
 
 
+
+def preprocesarTest(df):
+    df = df.apply(lambda x: re.sub('[^^a-zA-Z_\s]', '', x))
+    # Delete StopWords
+    df = df.apply(lambda x: deleteStopWords(x))
+    # Delete HTML tags
+    df = df.apply(lambda x: deleteHtml(x))
+    print(bcolors.OKCYAN + "\tCorrigiendo y lematizando palabras." + bcolors.ENDC)
+    for i in tqdm(range(len(df)), bar_format='{l_bar}{bar:30}{r_bar}', leave=True):
+        words = df[i].split()
+        newWords = []
+        for j in range(0,len(words)):
+            # Change word to lowercase
+            aux = words[j].lower()
+            # Correct spelling
+            aux = correctSpelling(aux)
+            # Lemmatize
+            aux = lemmatize(aux)
+            if aux in dictionary:
+                newWords.append(aux)
+        df[i] = " ".join(newWords) 
+    
+    
+    sentences = ""
+    for sentence in df:
+        sentences += str(sentence) + "\n"
+
+    print(bcolors.OKGREEN + "Se preproceasdo el fichero de test correctamente." + bcolors.ENDC)
+    return sentences
