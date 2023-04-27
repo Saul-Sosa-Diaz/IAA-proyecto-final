@@ -9,7 +9,7 @@ from utilsCorpus import *
 import os
 
 def main():
-    df = readFileTrain(os.path.join(".", "data", "F75_train.csv"))
+    df = readFileTrain(os.path.join(".", "data", "F75_train1.csv"))
     negativeCorpus, neutralCorpus, positiveCorpus = createAllCorpusTrain(df)
     writeFile(negativeCorpus, os.path.join(".", "corpus", "negative_corpus.txt"))
     writeFile(neutralCorpus, os.path.join(".", "corpus", "neutral_corpus.txt"))

@@ -195,7 +195,7 @@ def preprocesarTest(df):
     df = df.apply(lambda x: deleteStopWords(x))
     # Delete HTML tags
     df = df.apply(lambda x: deleteHtml(x))
-    print(bcolors.OKCYAN + "\tPreprocesando noticias." + bcolors.ENDC)
+    print(bcolors.OKCYAN + "\tCorrigiendo y lematizando palabras." + bcolors.ENDC)
     for i in tqdm(range(len(df)), bar_format='{l_bar}{bar:30}{r_bar}', leave=True):
         words = df[i].split()
         newWords = []

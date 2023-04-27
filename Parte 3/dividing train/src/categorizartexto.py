@@ -32,7 +32,7 @@ def main():
       comprobar.append("neutral")
 
    # Read CSV file with pandas
-  df = pd.read_csv(os.path.join(".", "data", "F75_train.csv"), header=None)
+  df = pd.read_csv(os.path.join(".", "data", "F75_train_to_test.csv"), header=None)
   # Name the columns
   df.columns = ['texto', 'sentimiento']
   correctas = df['sentimiento']
