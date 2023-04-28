@@ -10,7 +10,7 @@ from colors import bcolors
 import os
 
 
-def main():
+def createModels():
     negativeCorpus, numbersNegativeNews = readCorpus(
         os.path.join(".", "corpus", "negative_corpus.txt"))
     positiveCorpus, numbersPositiveNews = readCorpus(
@@ -43,4 +43,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    createModels()

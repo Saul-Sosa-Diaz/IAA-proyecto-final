@@ -130,7 +130,7 @@ def getProb(model, news):
     for j in range(2, len(model)):
         words[model[j].split(" ")[0].split(":")[1]] = float(model[j].split(":")[-1])
     
-    for sentence in news.split('\n'):
+    for sentence in news.split('\n')[:-1]:
         prob = 0
         for word in sentence.split(" "):
             try:

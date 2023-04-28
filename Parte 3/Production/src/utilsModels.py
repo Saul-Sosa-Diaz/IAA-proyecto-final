@@ -5,10 +5,7 @@ Date: 19/04/2023
 Description: This file contains several functions for natural language processing. 
 """
 
-
 import math
-
-
 
 def readCorpus(nameIn):
     '''This function reads a corpus from a file and returns a list of words and the number of news articles
@@ -130,7 +127,7 @@ def getProb(model, news):
     for j in range(2, len(model)):
         words[model[j].split(" ")[0].split(":")[1]] = float(model[j].split(":")[-1])
     
-    for sentence in news.split('\n'):
+    for sentence in news.split('\n')[:-1]:
         prob = 0
         for word in sentence.split(" "):
             try:

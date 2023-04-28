@@ -13,13 +13,13 @@ import pandas as pd
 import os
 
 
-def main():
+def categorizeText(nameNews):
 
   modelo_N = readFile(os.path.join(".", "models", "modelo_lenguaje_N.txt"))
   modelo_P = readFile(os.path.join(".", "models", "modelo_lenguaje_P.txt"))
   modelo_T = readFile(os.path.join(".", "models", "modelo_lenguaje_T.txt"))
 
-  test = readFile(os.path.join(".", "data", "PreprocesadoTest.txt"))
+  test = readFile(os.path.join(".", "data", "NewsProcessed.txt"))
 
   Probs_N = getProb(modelo_N, test)
   Probs_P = getProb(modelo_P, test)
@@ -27,7 +27,7 @@ def main():
 
   stringToAbstract = ""
   stringToClasificator = ""
-  NewsWithoutPreprosessing = pd.read_csv(os.path.join(".", "data", "F75_train.csv"), header=None) 
+  NewsWithoutPreprosessing = pd.read_csv(os.path.join(".", "data", nameNews), header=None)
 
   for i in range(0, len(Probs_N)):
     
@@ -79,4 +79,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    categorizeText()

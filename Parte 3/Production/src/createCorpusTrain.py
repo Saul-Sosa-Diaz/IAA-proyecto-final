@@ -8,8 +8,8 @@ Description: This file is a Python script that uses the utils module to read a d
 from utilsCorpus import *
 import os
 
-def main():
-    df = readFileTrain(os.path.join(".", "data", "F75_train1.csv"))
+def createCopusOfTrain(nameOfTrainFile):
+    df = readFileTrain(os.path.join(".", "data", nameOfTrainFile))
     negativeCorpus, neutralCorpus, positiveCorpus = createAllCorpusTrain(df)
     writeFile(negativeCorpus, os.path.join(".", "corpus", "negative_corpus.txt"))
     writeFile(neutralCorpus, os.path.join(".", "corpus", "neutral_corpus.txt"))
@@ -17,5 +17,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    createCopusOfTrain()
 
