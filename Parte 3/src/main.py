@@ -28,7 +28,7 @@ def main():
         createVocabulary(nameTrain)
 
     if args.corpus:
-        if not os.path.exists(os.path.join(".", "data", "NewsProcessed.txt")):
+        if not os.path.exists(os.path.join(".", "data", "vocabulario.txt")):
             raise Exception(bcolors.FAIL + "No se ha podido encontrar el vocabulario, por favor ejecute el programa con la opción -v" + bcolors.ENDC)
         createCopusOfTrain(nameTrain)
     

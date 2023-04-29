@@ -81,7 +81,7 @@ def lemmatize(word):
     return lemma
 
 
-def writeFile(content, nameOut="vocabulario.txt"):
+def writeFile(content, nameOut):
     """
     The function writes the given content to a file named "vocabulario.txt" and also writes the number
     of lines in the content to the file.

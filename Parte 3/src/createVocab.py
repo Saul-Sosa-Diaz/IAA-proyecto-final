@@ -10,10 +10,10 @@ from colors import bcolors
 import os
 
 
-def createVocabulary():
-    df = readFile()
+def createVocabulary(nameIn):
+    df = readFile(nameIn)
     vocabulary = createVocab(df)
-    writeFile(vocabulary)
+    writeFile(vocabulary, os.path.join(".", "data", "vocabulario.txt"))
 
 
 if __name__ == "__main__":
