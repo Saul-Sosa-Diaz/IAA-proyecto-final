@@ -27,7 +27,7 @@ def categorizeText(nameNews):
 
   stringToAbstract = ""
   stringToClasificator = ""
-  NewsWithoutPreprosessing = pd.read_csv(os.path.join(".", "data", nameNews), header=None)
+  NewsWithoutPreprosessing = pd.read_csv(nameNews, header = None)
 
   for i in range(0, len(Probs_N)):
     

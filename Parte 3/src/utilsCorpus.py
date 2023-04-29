@@ -13,8 +13,8 @@ from bs4 import BeautifulSoup
 from textblob import TextBlob
 import spacy
 from colors import bcolors
-nltk.download('words')
-nltk.download('stopwords')
+nltk.download('words', quiet=True)
+nltk.download('stopwords', quiet=True)
 # Contains a list of more than 236,000 English words, from common words to specialized terms.
 dictionary = set(nltk.corpus.words.words())
 # Contains a list of stopwords in english

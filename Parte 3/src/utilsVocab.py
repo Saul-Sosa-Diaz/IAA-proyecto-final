@@ -23,8 +23,8 @@ from bs4 import BeautifulSoup
 from textblob import TextBlob
 import spacy
 from colors import bcolors
-nltk.download('words')
-nltk.download('stopwords')
+nltk.download('words', quiet=True)
+nltk.download('stopwords', quiet=True)
 # Contains a list of more than 236,000 English words, from common words to specialized terms.
 dictionary = set(nltk.corpus.words.words())
 # Contains a list of stopwords in english
@@ -134,6 +134,7 @@ def createVocab(df):
     words = list(words)
 
     print(bcolors.OKCYAN + "Corrigiendo Y lematizando palabras." + bcolors.ENDC)
+    
     for i in tqdm(range(len(words)), bar_format='{l_bar}{bar:30}{r_bar}', leave=True):
         # Change word to lowercase
         words[i] = words[i].lower()
@@ -151,5 +152,5 @@ def createVocab(df):
         if wordSorted in dictionary:
             wordsString += wordSorted + "\n"
     wordsString += "<unk> \n"
-    print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.ENDC)
+   
     return wordsString

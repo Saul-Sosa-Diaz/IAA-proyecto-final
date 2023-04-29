@@ -11,10 +11,11 @@ import os
 
 
 def createVocabulary(nameIn):
+    print("Creando vocabulario")
     df = readFile(nameIn)
     vocabulary = createVocab(df)
     writeFile(vocabulary, os.path.join(".", "data", "vocabulario.txt"))
-
+    print(bcolors.OKGREEN + "Se ha creado el vocabulario correctamente." + bcolors.ENDC)
 
 if __name__ == "__main__":
     createVocabulary()

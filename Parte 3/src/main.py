@@ -8,8 +8,8 @@ from categorizeText import *
 from createVocab import *
 
 def main():
-    nameTest = "F75_trainTest"
-    nameTrain = "F75_train.csv"
+    nameTest = os.path.join(".", "data", "F75_trainTest.csv")
+    nameTrain = os.path.join(".", "data", "F75_train.csv")
 
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", '--vocab', action='store_true',
@@ -48,26 +48,30 @@ def main():
     
     # Preprocear texto
     if args.text:
-        folder_path = os.path.join(".", "corpus")
-        file_names = ['negative_corpus.txt',
-                      'neutral_corpus.txt',
-                      'positive_corpus.txt']
-        files_in_folder = os.listdir(folder_path)
 
-        for file_name in file_names:
-            if file_name not in files_in_folder:
-                raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
-        
         folder_path = os.path.join(".", "models")
         file_names = ['modelo_lenguaje_N.txt',
                       'modelo_lenguaje_P.txt',
                       'modelo_lenguaje_T.txt']
-        
         files_in_folder = os.listdir(folder_path)
 
         for file_name in file_names:
             if file_name not in files_in_folder:
-                raise Exception(bcolors.FAIL + "No se han podido encontrar los modelos, por favor ejecute el programa con la opción -m" + bcolors.ENDC)
+                raise Exception(
+                    bcolors.FAIL + "No se han podido encontrar los modelos, por favor ejecute el programa con la opción -m" + bcolors.ENDC)
+        folder_path = os.path.join(".", "corpus")
+
+        file_names = ['negative_corpus.txt',
+                      'neutral_corpus.txt',
+                      'positive_corpus.txt']
+        
+        files_in_folder = os.listdir(folder_path)
+        for file_name in file_names:
+            if file_name not in files_in_folder:
+                raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
+        
+        
+        
 
         preprocessTest(nameTest)
     

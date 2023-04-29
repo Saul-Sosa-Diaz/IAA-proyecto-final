@@ -9,12 +9,13 @@ from utilsCorpus import *
 import os
 
 def createCopusOfTrain(nameOfTrainFile):
-    df = readFileTrain(os.path.join(".", "data", nameOfTrainFile))
+    print("Creando los corpus")
+    df = readFileTrain(nameOfTrainFile)
     negativeCorpus, neutralCorpus, positiveCorpus = createAllCorpusTrain(df)
     writeFile(negativeCorpus, os.path.join(".", "corpus", "negative_corpus.txt"))
     writeFile(neutralCorpus, os.path.join(".", "corpus", "neutral_corpus.txt"))
     writeFile(positiveCorpus, os.path.join(".", "corpus", "positive_corpus.txt"))
-
+    print(bcolors.OKGREEN + "Creados corpus correctamente" + bcolors.ENDC)
 
 if __name__ == "__main__":
     createCopusOfTrain()

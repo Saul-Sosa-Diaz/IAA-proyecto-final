@@ -11,6 +11,7 @@ import os
 
 
 def createModels():
+    print("Creando modelos")
     negativeCorpus, numbersNegativeNews = readCorpus(
         os.path.join(".", "corpus", "negative_corpus.txt"))
     positiveCorpus, numbersPositiveNews = readCorpus(
