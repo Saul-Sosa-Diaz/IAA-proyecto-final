@@ -14,8 +14,8 @@ def preprocessTest(nameFile):
     """
     df = readFileTest(os.path.join(".", "data", nameFile))
     Test = preprocesarTest(df['texto'])
-    writeFile(Test, os.path.join(".", "data", "NewsProcessed.txt"))
+    writeFile(os.path.join(".", "data", "NewsProcessed.txt"), Test)
 
 
 if __name__ == "__main__":
-    preprocessTest()
+    preprocessTest("test")

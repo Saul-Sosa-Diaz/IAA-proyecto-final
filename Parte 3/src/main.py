@@ -5,9 +5,15 @@ from createCorpusTrain import *
 from createModels import *
 from preprocessTest import *
 from categorizeText import *
+from createVocab import *
 
 def main():
+    nameTest = "F75_trainTest"
+    nameTrain = "F75_train.csv"
+
     parser = argparse.ArgumentParser()
+    parser.add_argument("-v", '--vocab', action='store_true',
+                        help='Crea el vocabulario de los corpus.')
     parser.add_argument("-c", '--corpus', action='store_true',
                         help= 'Crea los corpus de las noticias.')
     parser.add_argument("-m", '--models', action='store_true',
@@ -17,11 +23,17 @@ def main():
     
     args = parser.parse_args()
     # Crear corpus
-    if args.c:
-        createCopusOfTrain("F75_train.csv")
+
+    if args.vocab:
+        createVocabulary(nameTrain)
+
+    if args.corpus:
+        if not os.path.exists(os.path.join(".", "data", "NewsProcessed.txt")):
+            raise Exception(bcolors.FAIL + "No se ha podido encontrar el vocabulario, por favor ejecute el programa con la opción -v" + bcolors.ENDC)
+        createCopusOfTrain(nameTrain)
     
     # Crear Modelos
-    if args.m:
+    if args.models:
         folder_path = os.path.join(".", "corpus")
         file_names = ['negative_corpus.txt',
                       'neutral_corpus.txt', 
@@ -30,12 +42,12 @@ def main():
         
         for file_name in file_names:
             if file_name not in files_in_folder:
-                raise bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC
+                raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
         
         createModels()
     
     # Preprocear texto
-    if args.t:
+    if args.text:
         folder_path = os.path.join(".", "corpus")
         file_names = ['negative_corpus.txt',
                       'neutral_corpus.txt',
@@ -44,7 +56,7 @@ def main():
 
         for file_name in file_names:
             if file_name not in files_in_folder:
-                raise bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC
+                raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
         
         folder_path = os.path.join(".", "models")
         file_names = ['modelo_lenguaje_N.txt',
@@ -55,12 +67,18 @@ def main():
 
         for file_name in file_names:
             if file_name not in files_in_folder:
-                raise bcolors.FAIL + "No se han podido encontrar los modelos, por favor ejecute el programa con la opción -m" + bcolors.ENDC
+                raise Exception(bcolors.FAIL + "No se han podido encontrar los modelos, por favor ejecute el programa con la opción -m" + bcolors.ENDC)
 
-        preprocessTest("F75_trainTest.csv")
+        preprocessTest(nameTest)
     
-    categorizeText("F75_trainTest.csv")
+    if not os.path.exists(os.path.join(".", "data", "NewsProcessed.txt")):
+        raise Exception(bcolors.FAIL + "No se han podido encontrar el fichero test preproceado, por favor ejecute el programa con la opción -t" + bcolors.ENDC)
+    
+    categorizeText(nameTest)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as err:
+        print(str(err))
