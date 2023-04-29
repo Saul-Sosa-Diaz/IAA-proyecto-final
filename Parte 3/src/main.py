@@ -20,10 +20,9 @@ def main():
                         help='Entrena los modelos.')
     parser.add_argument("-t", '--text', action='store_true',
                         help='Preprocesa el texto de prueba.')
-    
     args = parser.parse_args()
+    
     # Crear corpus
-
     if args.vocab:
         createVocabulary(nameTrain)
 
@@ -70,15 +69,14 @@ def main():
             if file_name not in files_in_folder:
                 raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
         
-        
-        
-
         preprocessTest(nameTest)
     
     if not os.path.exists(os.path.join(".", "data", "NewsProcessed.txt")):
         raise Exception(bcolors.FAIL + "No se han podido encontrar el fichero test preproceado, por favor ejecute el programa con la opción -t" + bcolors.ENDC)
     
     categorizeText(nameTest)
+
+
 
 
 if __name__ == "__main__":
