@@ -16,7 +16,7 @@ from createVocab import *
 
 def main():
 
-    nameText = os.path.join(".", "data", "F75_test.csv")
+    nameText = os.path.join(".", "data", "F75_train.csv")
     nameTrain = os.path.join(".", "data", "F75_train.csv")
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", '--vocab', action='store_true', help='Crea el vocabulario de los corpus.')
@@ -70,7 +70,7 @@ def main():
             if file_name not in files_in_folder:
                 raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
         
-        preprocessText(nameText)
+        preprocessTexts(nameText)
     
     if not os.path.exists(os.path.join(".", "data", "NewsProcessed.txt")):
         raise Exception(bcolors.FAIL + "No se han podido encontrar el fichero test preproceado, por favor ejecute el programa con la opción -t" + bcolors.ENDC)

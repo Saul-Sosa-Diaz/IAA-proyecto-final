@@ -9,7 +9,7 @@ into a text file named "NewsProcessed.txt" in a folder named "data" in the curre
 from utilTexts import *
 import os
 
-def preprocessText(nameFile):
+def preprocessTexts(nameFile):
     """
     The function creates a preprocessed test file by reading a CSV file, preprocessing the text data,
     and writing the preprocessed data to a text file.
