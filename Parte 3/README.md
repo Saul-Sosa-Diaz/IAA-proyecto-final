@@ -3,28 +3,19 @@
 * email: _alu0101404141@ull.edu.es_
 
 ## Resumen
-El objetivo es generar 3 modelos a partir F75_train.csv que contiene noticias, los tres modelos corresponden a los tres tipos de noticias que hay, Positivas, Neutras y negativas.
+El objetivo es clasificar correctamente una serie de noticias dadas.
 
 ## Ejecución
-Para poder ejecutar el programa y crear los modelos debemos tener los corpus necesarios en la carpeta corpus.  
-En caso de no tenerlos, los podemos generar con el siguiente comando:
-```BASH
-python3 ./src/preprocessCorpus.py
-```
-Una vez hecho esto ya tendemos los corpus generados, ahora deberemos de crear los modelos, para ello utilizamos el siguiente comando:
-```BASH
-python3 ./src/createModels.py
-```
-Ahora tendremos una carpeta modelos con los tres modelos generados.
 
-## Estructura de directorios
+```BASH
+python3 ./src/main.py
 ```
-  .
-  ├── src # Contiene el código fuente del programa.
-  ├─── data # Contiene información necesaria para crear los corpus y los modelos.
-  ├─── corpus # Contiene los corpus necesarios para la creación de los modelos.     
-  └── models # Contiene los modelos generados por el programa.  
-```
+
+## Opciones del programa
+ * -v  -> Crea el vocabulario de las noticias de entrenamiento
+ * -c  -> Crea los corpus y los guarda en la carpeta corpus.
+ * -m  -> Crea los modelos.
+ * -t  -> Preprocesa el texto a clasificar
 
 
 ## Dependencias:

@@ -1,5 +1,5 @@
 """
-File: utils.py
+File: utilsModels.py
 Author: Saúl Sosa Díaz
 Date: 19/04/2023
 Description: This file contains several functions for natural language processing. 
@@ -118,7 +118,7 @@ def readFile(nameIn):
 
 
 
-def getProb(model, news):
+def getProb(model, news, numberOfNews):
     model = model.split('\n')
     numberOfNewsThisType = int(model[0].split(":")[1])
     probs = []
@@ -134,7 +134,7 @@ def getProb(model, news):
                 prob += words[word] 
             except:
                 prob += words["<unk>"]
-        prob += math.log(numberOfNewsThisType/2500)
+        prob += math.log(numberOfNewsThisType/numberOfNews)
         probs.append(prob)
 
     return probs

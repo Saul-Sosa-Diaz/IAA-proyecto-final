@@ -1,5 +1,5 @@
 """
-File: utils.py
+File: utilsCorpus.py
 Author: Saúl Sosa Díaz
 Date: 19/04/2023
 Description: This Python file contains functions to process text and create a Corpus from a set of text data.

@@ -1,5 +1,5 @@
 """
-File: utils.py
+File: utilsVocab.py
 Author: Saúl Sosa Díaz
 Date: 12/04/2023
 Description: This Python file contains functions to process text and create a vocabulary from a set of text data.

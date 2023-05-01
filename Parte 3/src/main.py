@@ -1,25 +1,28 @@
+"""
+File: main.py
+Author: Saúl Sosa Díaz
+Date: 26/04/2023
+Description: Main program file
+"""
+
 import argparse
 from colors import bcolors
 import os
 from createCorpusTrain import *
 from createModels import *
-from preprocessTest import *
+from preprocessText import *
 from categorizeText import *
 from createVocab import *
 
 def main():
-    nameTest = os.path.join(".", "data", "F75_trainTest.csv")
-    nameTrain = os.path.join(".", "data", "F75_train.csv")
 
+    nameText = os.path.join(".", "data", "F75_test.csv")
+    nameTrain = os.path.join(".", "data", "F75_train.csv")
     parser = argparse.ArgumentParser()
-    parser.add_argument("-v", '--vocab', action='store_true',
-                        help='Crea el vocabulario de los corpus.')
-    parser.add_argument("-c", '--corpus', action='store_true',
-                        help= 'Crea los corpus de las noticias.')
-    parser.add_argument("-m", '--models', action='store_true',
-                        help='Entrena los modelos.')
-    parser.add_argument("-t", '--text', action='store_true',
-                        help='Preprocesa el texto de prueba.')
+    parser.add_argument("-v", '--vocab', action='store_true', help='Crea el vocabulario de los corpus.')
+    parser.add_argument("-c", '--corpus', action='store_true', help= 'Crea los corpus de las noticias.')
+    parser.add_argument("-m", '--models', action='store_true',help='Entrena los modelos.')
+    parser.add_argument("-t", '--text', action='store_true', help='Preprocesa el texto a clasificar.')
     args = parser.parse_args()
     
     # Crear corpus
@@ -38,11 +41,9 @@ def main():
                       'neutral_corpus.txt', 
                       'positive_corpus.txt']
         files_in_folder = os.listdir(folder_path)
-        
         for file_name in file_names:
             if file_name not in files_in_folder:
                 raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
-        
         createModels()
     
     # Preprocear texto
@@ -69,12 +70,12 @@ def main():
             if file_name not in files_in_folder:
                 raise Exception(bcolors.FAIL + "No se han podido encontrar los corpus, por favor ejecute el programa con la opción -c" + bcolors.ENDC)
         
-        preprocessTest(nameTest)
+        preprocessText(nameText)
     
     if not os.path.exists(os.path.join(".", "data", "NewsProcessed.txt")):
         raise Exception(bcolors.FAIL + "No se han podido encontrar el fichero test preproceado, por favor ejecute el programa con la opción -t" + bcolors.ENDC)
     
-    categorizeText(nameTest)
+    categorizeText(nameText)
 
 
 

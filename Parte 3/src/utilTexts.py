@@ -1,3 +1,10 @@
+"""
+File: utilsTexts.py
+Author: Saúl Sosa Díaz
+Date: 12/04/2023
+Description: This Python file contains functions to process text and preprocess new news.
+"""
+
 import pandas as pd
 import re
 from utilsCorpus import *
@@ -18,7 +25,20 @@ def readFileTest(nameIn="F75_train.csv"):
     return df
 
 
-def preprocesarTest(df):
+def preprocessText(df):
+    '''The function preprocesses text data by removing non-alphabetic characters, deleting stop words and
+    HTML tags, correcting spelling, lemmatizing, and returning the preprocessed text as a string.
+    
+    Parameters
+    ----------
+    df
+        a pandas dataframe containing text data to be preprocessed.
+    
+    Returns
+    -------
+        a string of preprocessed text data.
+    
+    '''
     df = df.apply(lambda x: re.sub('[^^a-zA-Z_\s]', '', x))
     # Delete StopWords
     df = df.apply(lambda x: deleteStopWords(x))
