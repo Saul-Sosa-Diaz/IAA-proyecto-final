@@ -12,9 +12,9 @@ def createCopusOfTrain(nameOfTrainFile):
     print("Creando los corpus")
     df = readFileTrain(nameOfTrainFile)
     negativeCorpus, neutralCorpus, positiveCorpus = createAllCorpusTrain(df)
-    writeFile(negativeCorpus, os.path.join(".", "corpus", "negative_corpus.txt"))
-    writeFile(neutralCorpus, os.path.join(".", "corpus", "neutral_corpus.txt"))
-    writeFile(positiveCorpus, os.path.join(".", "corpus", "positive_corpus.txt"))
+    writeFile(negativeCorpus, os.path.join(".", "corpus", "corpusN.txt"))
+    writeFile(neutralCorpus, os.path.join(".", "corpus", "corpusT.txt"))
+    writeFile(positiveCorpus, os.path.join(".", "corpus", "corpusP.txt"))
     print(bcolors.OKGREEN + "Creados corpus correctamente" + bcolors.ENDC)
 
 if __name__ == "__main__":

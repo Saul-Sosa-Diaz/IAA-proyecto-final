@@ -13,11 +13,11 @@ import os
 def createModels():
     print("Creando modelos")
     negativeCorpus, numbersNegativeNews = readCorpus(
-        os.path.join(".", "corpus", "negative_corpus.txt"))
+        os.path.join(".", "corpus", "corpusN.txt"))
     positiveCorpus, numbersPositiveNews = readCorpus(
-        os.path.join(".", "corpus", "positive_corpus.txt"))
+        os.path.join(".", "corpus", "corpusP.txt"))
     neutralCorpus, numbersNeutralNews = readCorpus(
-        os.path.join(".", "corpus", "neutral_corpus.txt"))
+        os.path.join(".", "corpus", "corpusT.txt"))
     
     vocabulary = readVocab(os.path.join(".", "data", "vocabulario.txt"))
 

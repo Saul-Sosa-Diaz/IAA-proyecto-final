@@ -15,7 +15,7 @@ def preprocessTexts(nameFile):
     and writing the preprocessed data to a text file.
     """
     print("Preproceando Nuevas noticias")
-    df = readFileTest(nameFile)
+    df = readFileText(nameFile)
     Test = preprocessText(df['texto'])
     writeFile(os.path.join(".", "data", "NewsProcessed.txt"), Test)
     print(bcolors.OKGREEN + "Las noticias se han preprocesado correctamente." + bcolors.ENDC)

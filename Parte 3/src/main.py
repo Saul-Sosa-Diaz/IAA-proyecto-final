@@ -15,9 +15,10 @@ from categorizeText import *
 from createVocab import *
 
 def main():
+    nameTrain = os.path.join(".", "data", "F75_train_1.csv")
+    nameText = os.path.join(".", "data", "F75_train_2.csv")
+    
 
-    nameText = os.path.join(".", "data", "F75_train.csv")
-    nameTrain = os.path.join(".", "data", "F75_train.csv")
     parser = argparse.ArgumentParser()
     parser.add_argument("-v", '--vocab', action='store_true', help='Crea el vocabulario de los corpus.')
     parser.add_argument("-c", '--corpus', action='store_true', help= 'Crea los corpus de las noticias.')
@@ -37,9 +38,9 @@ def main():
     # Crear Modelos
     if args.models:
         folder_path = os.path.join(".", "corpus")
-        file_names = ['negative_corpus.txt',
-                      'neutral_corpus.txt', 
-                      'positive_corpus.txt']
+        file_names = ['corpusN.txt',
+                      'corpusP.txt',
+                      'corpusT.txt']
         files_in_folder = os.listdir(folder_path)
         for file_name in file_names:
             if file_name not in files_in_folder:
@@ -61,9 +62,9 @@ def main():
                     bcolors.FAIL + "No se han podido encontrar los modelos, por favor ejecute el programa con la opción -m" + bcolors.ENDC)
         folder_path = os.path.join(".", "corpus")
 
-        file_names = ['negative_corpus.txt',
-                      'neutral_corpus.txt',
-                      'positive_corpus.txt']
+        file_names = ['corpusN.txt',
+                      'corpusP.txt',
+                      'corpusT.txt']
         
         files_in_folder = os.listdir(folder_path)
         for file_name in file_names:

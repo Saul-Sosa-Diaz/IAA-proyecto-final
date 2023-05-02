@@ -5,22 +5,8 @@ Date: 19/04/2023
 Description: This Python file contains functions to process text and create a Corpus from a set of text data.
 """
 
-from tqdm import tqdm
-import pandas as pd
-import re
-import nltk
-from bs4 import BeautifulSoup
-from textblob import TextBlob
-import spacy
-from colors import bcolors
-nltk.download('words', quiet=True)
-nltk.download('stopwords', quiet=True)
-# Contains a list of more than 236,000 English words, from common words to specialized terms.
-dictionary = set(nltk.corpus.words.words())
-# Contains a list of stopwords in english
-stopwords = nltk.corpus.stopwords.words('english')
-# Contains the important object to lemmatize
-nlp = spacy.load('en_core_web_sm')
+from dependencies import *
+
 
 
 def correctSpelling(word):

@@ -117,24 +117,31 @@ def readFile(nameIn):
         return fileContent.read()
 
 
-
 def getProb(model, news, numberOfNews):
+    """
+    Given a model, news, and the number of news articles, calculate the probability of the news article.
+    @param model - the model used to calculate the probability
+    @param news - the news article
+    @param numberOfNews - the number of news articles
+    @return - List The probability of the news article
+    """
     model = model.split('\n')
     numberOfNewsThisType = int(model[0].split(":")[1])
     probs = []
-    
-    words = {}
+
+    # Create a dictionary with the words to make it easier to look them up and calculate probability
+    words = {} # key: word, value: log probability
     for j in range(2, len(model)):
-        words[model[j].split(" ")[0].split(":")[1]] = float(model[j].split(":")[-1])
-    
+        words[model[j].split(" ")[0].split(":")[1]] = float(model[j].split(":")[-1]) # The last element is the log probability
+
     for sentence in news.split('\n')[:-1]:
         prob = 0
         for word in sentence.split(" "):
             try:
-                prob += words[word] 
+                prob += words[word]
             except:
                 prob += words["<unk>"]
-        prob += math.log(numberOfNewsThisType/numberOfNews)
+        prob += math.log(numberOfNewsThisType/numberOfNews) # Add the probability of the type of news
         probs.append(prob)
 
     return probs

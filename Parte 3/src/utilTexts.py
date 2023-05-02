@@ -5,12 +5,10 @@ Date: 12/04/2023
 Description: This Python file contains functions to process text and preprocess new news.
 """
 
-import pandas as pd
-import re
 from utilsCorpus import *
 
 
-def readFileTest(nameIn="F75_train.csv"):
+def readFileText(nameIn="F75_train.csv"):
     """
     This function reads a CSV file with pandas, names the columns, and returns a dataframe.
     @param [nameIn=F75_train.csv] - The name of the CSV file to be read. If no name is provided, the
