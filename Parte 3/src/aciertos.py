@@ -13,7 +13,7 @@ def main():
   the percentage of correct predictions.
   '''
 
-  df = pd.read_csv(os.path.join(".", "data", "F75_train_2_Correct.csv"), header=None)
+  df = pd.read_csv(os.path.join(".", "data", "F75_train.csv"), header=None)
   # Name the columns
   df.columns = ['texto', 'sentimiento']
   correctas = list(df['sentimiento'])

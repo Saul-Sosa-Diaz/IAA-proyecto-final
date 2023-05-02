@@ -15,8 +15,8 @@ from categorizeText import *
 from createVocab import *
 
 def main():
-    nameTrain = os.path.join(".", "data", "F75_train_1.csv")
-    nameText = os.path.join(".", "data", "F75_train_2.csv")
+    nameTrain = os.path.join(".", "data", "F75_train.csv")
+    nameText = os.path.join(".", "data", "F75_trainTest.csv")
     
 
     parser = argparse.ArgumentParser()
